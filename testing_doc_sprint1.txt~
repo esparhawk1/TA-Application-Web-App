@@ -1,0 +1,24 @@
+Thought of testing scenarios for the web app
+Chantal Lewis 
+
+UI:
+All fields have correct corresponding labels, and hold enough characters for adequate responses.
+Any fields that are mandatory/NOT null should have an identifier displaying their can’t remain empty.
+If form is saved or submitted without mandatory spaces filled, returns error message, keeps form data in text boxes but doesn’t save in DB.
+Check fields for non valid characters ( special characters, invalid characters), if characters are unacceptable return an error message upon form submission. 
+Create accounts of TA, admin, teacher, make sure they are able to log in and they log in to the correct UI. (Correct permissions).
+Time periods for submission and TA are correctly displayed, will not display application if past application time period. 
+Can test the timing portion by first creating a time window for application and selection process. Try to log in to complete an application during the time period and after time has expired. Ensure that correct UI is displayed and applications are not able to be edited after the time period. 
+
+Controller/Back-End:
+The correct buttons (submit/save/etc..) call the correct function and executes the save or submit correctly.
+Corresponds with #4 from UI, checks input from form for character characters/input if not flags an error that the UI displays
+
+
+DB:
+Submit a test application, make sure each field from the application is stored in the correct attribute and the correct table. 
+Check submitted table for duplicates, before allowing a new application be become submitted.
+Check the “save” function, make sure it submits information into the saved information table instead of submit. 
+Update an application, when updates are made make sure they correctly update the record in the saved applications table. 
+
+

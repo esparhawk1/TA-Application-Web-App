@@ -1,0 +1,245 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.10.9
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.12.50.2:3306
+-- Generation Time: Apr 05, 2015 at 09:44 PM
+-- Server version: 5.5.41
+-- PHP Version: 5.3.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `webapp`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Application`
+--
+
+CREATE TABLE IF NOT EXISTS `Application` (
+  `appID` int(10) NOT NULL,
+  `userID` int(10) NOT NULL,
+  `position` tinyint(1) NOT NULL,
+  `GPA` float NOT NULL,
+  `program_level` varchar(15) NOT NULL,
+  `graduate_program` tinyint(1) NOT NULL,
+  `advisor` varchar(30) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `gradDate` date NOT NULL,
+  `optScore` int(2) NOT NULL,
+  `optWhen` date NOT NULL,
+  `GATO` tinyint(1) NOT NULL,
+  `SPEAK` tinyint(1) NOT NULL,
+  `ONITA` tinyint(1) NOT NULL,
+  `ONITA_date` date NOT NULL,
+  `assignment` int(10) NOT NULL,
+  PRIMARY KEY (`appID`),
+  KEY `userID` (`userID`,`assignment`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Application`
+--
+
+INSERT INTO `Application` (`appID`, `userID`, `position`, `GPA`, `program_level`, `graduate_program`, `advisor`, `phone`, `email`, `gradDate`, `optScore`, `optWhen`, `GATO`, `SPEAK`, `ONITA`, `ONITA_date`, `assignment`) VALUES
+(1, 1, 1, 3.8, '2015', 1, 'Sccot', '0', 'test@test.com', '2015-05-01', 80, '2015-04-01', 0, 0, 0, '0000-00-00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Course`
+--
+
+CREATE TABLE IF NOT EXISTS `Course` (
+  `courseID` int(10) NOT NULL,
+  `course name` varchar(30) NOT NULL,
+  `dpmtID` int(11) NOT NULL,
+  PRIMARY KEY (`courseID`),
+  KEY `dpmtID` (`dpmtID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Course`
+--
+
+INSERT INTO `Course` (`courseID`, `course name`, `dpmtID`) VALUES
+(1050, 'Algorithm', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `currTeach`
+--
+
+CREATE TABLE IF NOT EXISTS `currTeach` (
+  `appID` int(10) NOT NULL,
+  `courseID` int(10) NOT NULL,
+  KEY `appID` (`appID`,`courseID`),
+  KEY `courseID` (`courseID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `currTeach`
+--
+
+INSERT INTO `currTeach` (`appID`, `courseID`) VALUES
+(1, 1050);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Department`
+--
+
+CREATE TABLE IF NOT EXISTS `Department` (
+  `dpmtID` int(10) NOT NULL,
+  `dpmtName` varchar(30) NOT NULL,
+  PRIMARY KEY (`dpmtID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Department`
+--
+
+INSERT INTO `Department` (`dpmtID`, `dpmtName`) VALUES
+(1, 'ComputerScience');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `otherWork`
+--
+
+CREATE TABLE IF NOT EXISTS `otherWork` (
+  `appID` int(10) NOT NULL,
+  `job` varchar(30) NOT NULL,
+  KEY `appID` (`appID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `otherWork`
+--
+
+INSERT INTO `otherWork` (`appID`, `job`) VALUES
+(1, 'Intern at Google');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Password`
+--
+
+CREATE TABLE IF NOT EXISTS `Password` (
+  `userID` int(11) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `salt` varchar(16) NOT NULL,
+  PRIMARY KEY (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Password`
+--
+
+INSERT INTO `Password` (`userID`, `password`, `salt`) VALUES
+(1, 'pass', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prevTeach`
+--
+
+CREATE TABLE IF NOT EXISTS `prevTeach` (
+  `appID` int(10) NOT NULL,
+  `courseID` int(11) NOT NULL,
+  KEY `appID` (`appID`,`courseID`),
+  KEY `courseID` (`courseID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `prevTeach`
+--
+
+INSERT INTO `prevTeach` (`appID`, `courseID`) VALUES
+(1, 1050);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `User`
+--
+
+CREATE TABLE IF NOT EXISTS `User` (
+  `userID` int(10) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `fname` varchar(25) NOT NULL,
+  `lname` varchar(30) NOT NULL,
+  `dpmtID` int(10) NOT NULL,
+  `permissions` int(1) NOT NULL,
+  PRIMARY KEY (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `User`
+--
+
+INSERT INTO `User` (`userID`, `username`, `fname`, `lname`, `dpmtID`, `permissions`) VALUES
+(1, 'test', '', 'test', 1, 1),
+(2, 'test2', '', 'test2', 1, 0);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Application`
+--
+ALTER TABLE `Application`
+  ADD CONSTRAINT `Application_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `User` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `Course`
+--
+ALTER TABLE `Course`
+  ADD CONSTRAINT `Course_ibfk_1` FOREIGN KEY (`dpmtID`) REFERENCES `Department` (`dpmtID`);
+
+--
+-- Constraints for table `currTeach`
+--
+ALTER TABLE `currTeach`
+  ADD CONSTRAINT `currTeach_ibfk_2` FOREIGN KEY (`courseID`) REFERENCES `Course` (`courseID`),
+  ADD CONSTRAINT `currTeach_ibfk_1` FOREIGN KEY (`appID`) REFERENCES `Application` (`appID`);
+
+--
+-- Constraints for table `otherWork`
+--
+ALTER TABLE `otherWork`
+  ADD CONSTRAINT `otherWork_ibfk_1` FOREIGN KEY (`appID`) REFERENCES `Application` (`appID`);
+
+--
+-- Constraints for table `Password`
+--
+ALTER TABLE `Password`
+  ADD CONSTRAINT `Password_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `User` (`userID`);
+
+--
+-- Constraints for table `prevTeach`
+--
+ALTER TABLE `prevTeach`
+  ADD CONSTRAINT `prevTeach_ibfk_2` FOREIGN KEY (`courseID`) REFERENCES `Course` (`courseID`),
+  ADD CONSTRAINT `prevTeach_ibfk_1` FOREIGN KEY (`appID`) REFERENCES `Application` (`appID`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

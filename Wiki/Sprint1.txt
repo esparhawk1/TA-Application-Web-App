@@ -1,0 +1,161 @@
+﻿Week of 3/30-4/6
+Sprint 1
+
+
+All members attended meeting. Meeting held at Lafferre computer lab at 5pm on 4/1/15. 
+
+
+
+
+Sprint milestone targets
+Application UI http://php-sweteame.rhcloud.com/index.php/Form_controller
+
+
+General
+* Sprint documentation - Assigned to Adam Hitchens [Completed]
+        Tasks to accomplish this milestone:
+1. Upload draft to Google Docs
+2. Upload wiki to openshift server
+3. Make any necessary revisions
+4. https://php-sweteame.rhcloud.com/index.php/welcome/login
+
+
+* Complete setup of Openshift - Assigned to Andrew Pistole [Completed]
+        Tasks to accomplish this milestone:
+1. Link application to GIT repo
+
+
+* Organize GIT repo - Assigned to Alex Drake & Andrew Pistole [Completed]
+        Tasks to accomplish this milestone:
+1. Make sure every member of the group successfully branches from master branch
+2. Clean up the repository and set guidelines for merging and pushing branches.
+
+
+
+
+Database
+* Finalize ERD - Assigned to Alex Drake [Completed]
+        Tasks to accomplish this milestone:
+1. Assign member to look over ERD and confirm that it is complete
+2. Upload complete ERD to Google Docs
+
+
+* Creation of DDL - Assigned to Vincent Lin [Completed]
+        Tasks to accomplish this milestone:
+1. Write file that will create data structures 
+2. Link to the repo
+
+
+
+
+
+
+* Implement DB, seed data for development - Assigned to Vincent Lin and Xuan Ding [Completed]
+        Tasks to accomplish this milestone:
+1. Set up DB with all necessary fields
+2. Test
+
+
+
+
+User Interface
+* Rendering application form complete - Assigned to Andrew Peth [Unpolished UI Completed, backend functionality in progress]
+http://php-sweteame.rhcloud.com/index.php/Form_controller
+        Tasks to accomplish this milestone:
+1. Create a PHP and HTML form with all the fields from the TA paper application.
+2. Make this form a callable ‘view’ for the CodeIgniter MVC framework.
+3. Create a controller to load the view and pass submitted information to the model and database. 
+Issues Ran Into: Was unable to connect to database, so the function calls in Form_controller $this->load->database(); was causing the form to crash and display an error saying error at config/Loader.php on line 346. Essentially this means our credentials are incorrect. To fix this, I commented this out. I then ran into the problem of the controller being unable to locate the model I created, again I commented out the $this->load->model(‘Form_model’); to avoid crashing the UI. The task of submitting all information from the application MVC into the database as well as getting the database to connect successfully will be completed during Sprint 2 along with the rest of the database submission functionality (login, application submission, admin, instructor). CSS and polishing of the form will be done during Sprint 2 as well.
+
+
+
+
+
+
+Testing Scenarios Documentation - Assigned to Chantal Lewis [Completed]
+* Develop testing scenarios documented on separate Wiki page, linked to all sprints
+        Tasks to accomplish this milestone:
+1. Brain storm UI testing scenarios, document.
+2. Brain storm controller/backend testing scenarios, document.
+3. Brain storm Database testing scenarios, document.
+4. Execute scenarios.
+
+
+
+
+Assigned Tasks
+Xuan Ding:
+        Link to specific GIT repository hash:
+eccc8c133d250f2d4dd729696ac740799c7fcbf7
+
+
+445059ac393016cac30f0830ca418addbd3289f8
+
+
+Alex Drake:
+        Link to specific GIT repository hash:
+577e7bf8344bd00ecc79b339d060d56912abb458
+df18f510e9cfce38627419cde75acdc54215b488
+15e3e8d4ad8ae848af01d0ec2c3ed55f62c8cdbd
+8588db4a683aad09e1e853bb3df591adba25bf2d
+311f488510b4b11a5020879ce21040a4a28560e1
+Task: Cleaned up the repo.
+
+
+Adam Hitchens:
+        Link to specific GIT repository hash:
+05dd54afb2304d2efe9dc10633fa9e0d52e424b8
+f77e809a7fbbc80a1e6e89fd98ad8d8277948138
+Task: Developed the wiki and handled sprint documentation.
+
+
+Chantal Lewis:
+        Link to specific GIT repository hash:
+e6d03803b3c3aa5e6697ba4fef2f9e42c7becfea
+ e3bf64632c0d70b7ca575108f1a93642a4c8d913
+Task: Devised testing scenarios and uploaded the document to OpenShift server for future reference.
+
+
+Vince Lin:
+        Link to specific GIT repository hash:
+8ae5ecf65bf676212553160f78b646394a5a14cf
+
+
+Task: Created the SQL Create Table statements on our phpmyadmin account which include the Application, Course, currTeach, Department, otherWork, Password, prevTeach, and User datatable.  The above GIT hash references the merge of the “SQL_Database” file to the master branch.
+
+
+Andrew Peth:
+        Link to specific GIT repository hash:
+Merge branch ahpb75_sprint1, getting UI to appear on server (most recent to oldest) - 40aa36cd79a6620cd5dddc4245adcc02860a2389 
+80daea26635325ddfd12b59bff533a08f5e4bc62 
+13d2a45457a8641c86b32d43c1227439e2c49c5c 
+f56f3a68d3f17ffe06352691405cf505eb8b4490 
+e5b0435bf9ed4ed7719b383817a81d53d30e3beb 
+35a409c68e6948713cb1fb6e7dd1504c9ca5844a 
+4d8e8fd5142fd24dc912572960a1335e99f7637b 
+911164c8282b08e97ac860e96eedaf242d1cee82 
+
+
+Task: Create application form UI (Form_view) located here: http://php-sweteame.rhcloud.com/index.php/Form_controller
+I created a form_view that has most of the form elements - the rest of the fields such as classes taken previously, classes wanted to be taken, classes they want to teach will be taken from the CS course catalog and added to drop down boxes for applicant selection (this will be completed during Sprint 2.) I then created a Form_controller with form validation, xss protection, and a form_model to store the data in the database. (Model and controller need further debugging) 
+
+
+
+
+
+
+
+
+Andrew Pistole:
+        Link to specific GIT repository hash:
+
+
+
+
+Tasks from Sprint 1 to be moved to Sprint 2
+1. The task of submitting all information from the TA application form’s MVC into the database as well as getting the database to connect successfully will be completed during Sprint 2 along with the rest of the database submission functionality (login, application submission, admin, instructor). The controller and model need to be debugged fully.
+   1. Reason: OpenShift made it difficult to test all of these components without multiple merges with master since master is the production server, master is the only development area we have been able to set up successfully. Research into creating our own accounts and servers with their own clone of the application to develop and test apart from the master production server is in progress and will hopefully be implemented soon to avoid this troublesome problem.
+
+
+1. CSS and polishing of the form will be done during Sprint 2.
+2. Addition of drop down boxes containing the CS course catalog for applicants to select courses they have previously taught, are currently teaching, and want to teach will be implemented into the form during Sprint 2.

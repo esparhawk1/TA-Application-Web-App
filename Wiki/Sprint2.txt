@@ -1,0 +1,126 @@
+﻿Week of 4/7 - 4/13
+
+
+
+Team E - Sprint 2
+When: Begin 4/7/2015 | End 4/13/2015
+Where: Meeting held at Lafferre computer lab at 5:00 PM on 4/8/15. 
+Who: Attendance 100%, All Team Members Attended.
+Links: Home | Sprint 1 | Sprint 3 | Sprint 4 | Testing Documentation
+
+
+Outline of Sprint
+
+
+Team Member
+	Assigned Task(s) and Milestones
+	Position
+	Status / Issues
+	GIT Hashes
+	Andrew Peth
+	Create applicant management page. Add bootstrap and CSS to applicant management page (applicant view) and application form.
+
+
+	-Lead
+	Completed
+	        3eded9acf5634d59b0410c05f2d76fb6f3a68a74     
+        30cf30b72cb20374feabc9ddfffb52404596ee67     
+        a8239e6d61b0754a52c95237b10a2c87967365d4     
+        681f265754c73c630c539f08d1279d08688ad5a3     
+	Adam Hitchens
+	Give admin ability to rank TA’s, view applications, and view comments. Assist Pistole in creating admin page
+	-Lead
+
+
+-Assisted Andrew Pistole
+	In Progress
+	3ac0e5dbd6729a2ab03b91bff01300ba9b05a983
+8254606d03372371ecf06dec041f5b039b26e3af
+	Andrew Pistole
+	Create admin management page (view and controller).
+Give admin ability to assign TA to course
+	-Lead
+
+
+-Assisted Adam Hitchens
+	In Progress
+	30f869f0fb2fc222dc846f845d82c5c59cf99c42
+	Alex Drake
+	Created applicant controller/model. Worked on instructor controller/model.
+	-Lead
+-Assisted Chantal Lewis
+	
+
+	c6cb285bfae812696086fc8a90cd765c44252c7a
+41c6def5a51cfebe9cecb74551f5e24b056fc78c
+d97552a5ffeac09ca7f194b3ac62cc3506e6866d
+aef66959185d9e024c32b3180d10037004949618
+a72e5a6372cb0f2e9cc39d8b66a040ab8c889b16
+
+
+	Chantal Lewis
+	Create instructor management page (view and controller) Worked on Instructor Model
+	-Lead
+	
+
+Completed
+	888f70eb4fef1f92edfa4233e5efd9009a347560
+1f4b817a7404b2544a15d461f55c572028ce38a7
+ad35daeac890dc9ee979d6c5bf598a8cf98183b3
+6c536e4e4ad844ab516a818ec0963e3f25159be8
+ 4930464a12a227501cca774832ca6e1c5de6dac1
+6c536e4e4ad844ab516a818ec0963e3f25159be8
+
+
+	Vincent Lin
+	Create a homepage view called home.php
+	-Lead
+
+
+	Completed
+	       7569f03dbd3f8e7530d222459dad74ae682e7304     66d72ca81a4691578257dad1f141a7f62f9947f2
+b1b77b2c3ae585091375363ad2fa2dcd680ebee8
+9419b7ed5b562da085b26c91c28335a128bdbe44 
+c838db26df75e74f86274078127844ce7d8500af     
+a14bfa7e9bfcccc457af723858a72aec825ebfe6                      
+	Xuan Ding
+	Create login and register functionality and view 
+Direct user to control panel based on their position (pull session information).
+	-Lead
+
+
+
+
+
+
+	Completed
+	eb6f21b5ab97589eb6c0857c9af3a940f1600603
+
+
+	
+
+
+
+_______________________________________________________________________________________________________
+
+
+View Prototype(s) Produced During Sprint 2:
+
+
+Home Page
+http://php-sweteame.rhcloud.com/
+
+
+__________________________________________________________________________________________
+
+
+
+
+
+
+
+
+Tasks from Sprint 2 to be moved to Sprint 3
+1. Finish up UI of whole website, make sure there are no broken links.
+2. Connecting the admin controller to the admin view
+3. Editing the admin view to add functions.
